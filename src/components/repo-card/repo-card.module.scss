@@ -1,5 +1,15 @@
 @use '../../theme' as *;
 
+.link {
+  text-decoration: none;
+  color: inherit;
+  border-radius: $radius;
+
+  &:hover {
+    background-color: map-get($map: $primary, $key: 500);
+  }
+}
+
 .repoCard {
   padding: 1rem;
   border-radius: $radius;
@@ -7,6 +17,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
   background-color: rgba(map-get($map: $secondary, $key: 400), 0.7);
 
   h3 {

@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
+import { Header } from '@components/header/Header'
+import { Login } from '@pages/login/Login'
+import { Register } from '@pages/register/Register'
+import { Github } from '@pages/github/Github'
+import { PrivateRoute } from '@auth/PrivateRoute'
+
 import './App.scss'
-import { PrivateRoute } from './auth/PrivateRoute'
-import { Header } from './components/header/Header'
-import { Github } from './pages/github/Github'
-import { Login } from './pages/login/Login'
-import { Register } from './pages/register/Register'
 
 function App() {
   const [isAuthenticated, setisAuthenticated] = useState(false)
 
   return (
-    <BrowserRouter basename='/nuwev3'>
+    <BrowserRouter>
       <Header setAuth={setisAuthenticated} isAuth={isAuthenticated} />
       <Switch>
         <Route

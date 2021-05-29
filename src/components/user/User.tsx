@@ -1,5 +1,5 @@
+import { GithubRepo } from '@models/github-repo'
 import React, { FunctionComponent } from 'react'
-import { GithubRepo } from '../../models/github-repo'
 import classes from './user.module.scss'
 
 interface UserProps {
@@ -15,7 +15,7 @@ export const User: FunctionComponent<UserProps> = ({ user, count }) => (
       <p>👨‍🎓 Type: {user.type}</p>
       <p>
         😁{' '}
-        <a href={user.url} target='_blank'>
+        <a href={user.html_url} target='_blank'>
           Link to Profile
         </a>
       </p>

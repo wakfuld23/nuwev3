@@ -1,8 +1,8 @@
 import React, { FormEvent, useCallback, useEffect, useState } from 'react'
-import { Input } from '../../components/input/Input'
-import { Repos } from '../../components/repos/Repos'
-import { User } from '../../components/user/User'
-import { GithubRepo } from '../../models/github-repo'
+import { Input } from '@components/input/Input'
+import { Repos } from '@components/repos/Repos'
+import { User } from '@components/user/User'
+import { GithubRepo } from '@models/github-repo'
 
 export const Github = () => {
   const [payload, setPayload] = useState<GithubRepo[] | null>(null)

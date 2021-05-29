@@ -7,7 +7,9 @@ import React, {
   useState,
 } from 'react'
 import { Link, RouteComponentProps } from 'react-router-dom'
-import { Input } from '../../components/input/Input'
+
+import { Input } from '@components/input/Input'
+
 import classes from './register.module.scss'
 
 interface Credentials {

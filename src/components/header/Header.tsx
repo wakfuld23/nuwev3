@@ -1,6 +1,7 @@
 import React, { Dispatch, FunctionComponent, SetStateAction } from 'react'
-import classes from './header.module.scss'
 import { Link } from 'react-router-dom'
+
+import classes from './header.module.scss'
 
 interface HeaderProps {
   isAuth: boolean

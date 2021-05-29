@@ -1,3 +1,4 @@
+import { Input } from '@components/input/Input'
 import React, {
   Dispatch,
   FormEvent,
@@ -7,7 +8,6 @@ import React, {
   useState,
 } from 'react'
 import { Link, RouteComponentProps } from 'react-router-dom'
-import { Input } from '../../components/input/Input'
 import classes from './login.module.scss'
 
 interface LoginProps extends RouteComponentProps {
