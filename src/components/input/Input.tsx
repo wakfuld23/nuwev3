@@ -11,7 +11,9 @@ interface InputProps {
 }
 export const Input: FunctionComponent<InputProps> = ({ type, onChange, value, name, label }) => (
   <>
-    <label htmlFor='github-user'>{label}</label>
+    <label className={classes.label} htmlFor='github-user'>
+      {label}
+    </label>
     <input
       className={classes.input}
       type={type}

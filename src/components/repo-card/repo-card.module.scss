@@ -4,6 +4,7 @@
   text-decoration: none;
   color: inherit;
   border-radius: $radius;
+  transition: background-color 0.3s ease-in-out;
 
   &:hover {
     background-color: map-get($map: $primary, $key: 500);

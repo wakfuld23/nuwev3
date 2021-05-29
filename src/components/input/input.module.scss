@@ -1,5 +1,9 @@
 @use '../../theme' as *;
 
+.label {
+  display: block;
+}
+
 .input {
   width: 100%;
   padding: 1.5rem;
@@ -11,7 +15,8 @@
   box-shadow: inset 0 0 11px 1px #0008;
   outline: none;
   margin-top: 0.5rem;
-
+  caret-color: map-get($map: $primary, $key: 400);
+  transition: background-color 0.1s ease-in-out;
   margin-bottom: 1rem;
 
   &:hover,
