@@ -1,0 +1,29 @@
+@use "../../theme" as *;
+
+.user {
+  padding: 2rem 0;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+  img {
+    border-radius: 16px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    color: map-get($map: $primary, $key: 400);
+  }
+
+  p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 3rem;
+  }
+
+  a {
+    color: map-get($map: $primary, $key: 500);
+  }
+}

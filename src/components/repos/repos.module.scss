@@ -1,0 +1,14 @@
+@use "../../theme" as *;
+
+.header {
+  font-size: 3rem;
+  color: map-get($map: $primary, $key: 400);
+  font-weight: 300;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 2rem 0;
+  gap: 1rem;
+}

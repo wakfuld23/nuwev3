@@ -1,0 +1,22 @@
+@use '../../theme' as *;
+
+.input {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #fff1;
+  color: #fff;
+  font-size: 2rem;
+  border: none;
+  border-radius: $radius;
+  box-shadow: inset 0 0 11px 1px #0008;
+  outline: none;
+  margin-top: 0.5rem;
+
+  margin-bottom: 1rem;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: rgba(map-get($primary, 400), 0.2);
+  }
+}

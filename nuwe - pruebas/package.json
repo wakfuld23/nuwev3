@@ -1,0 +1,17 @@
+{
+  "name": "asdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^27.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23"
+  }
+}

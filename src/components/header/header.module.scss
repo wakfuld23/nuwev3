@@ -1,0 +1,32 @@
+@use '../../theme' as *;
+
+.header {
+  padding: 1rem 8vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    color: map-get($map: $primary, $key: 400);
+    font-size: 3rem;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+  }
+
+  a {
+    color: #fff5;
+    font-size: 1.2rem;
+    text-decoration: none;
+
+    &:hover {
+      color: map-get($map: $primary, $key: 400);
+    }
+  }
+
+  li:not(:last-of-type) {
+    margin-right: 1rem;
+  }
+}
