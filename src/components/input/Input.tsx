@@ -11,7 +11,7 @@ interface InputProps {
 }
 export const Input: FunctionComponent<InputProps> = ({ type, onChange, value, name, label }) => (
   <>
-    <label className={classes.label} htmlFor='github-user'>
+    <label className={classes.label} htmlFor={label}>
       {label}
     </label>
     <input
@@ -20,7 +20,7 @@ export const Input: FunctionComponent<InputProps> = ({ type, onChange, value, na
       onChange={onChange}
       name={name}
       value={value}
-      id='github-user'
+      id={label}
     />
   </>
 )
