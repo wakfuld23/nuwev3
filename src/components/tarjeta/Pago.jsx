@@ -4,10 +4,12 @@ const Pago = () => {
 
     const imgUrl = "https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
 
+    const datos = { id, nombre, creditos };
+
      constructor(props, context) {
         super(props, context);
 
-        this.state = { description: '' };
+        this.state = { datos };
     }
 
     onChange(e) {
@@ -21,7 +23,7 @@ const Pago = () => {
 
         fetch(this.props.formAction, {
             headers: {
-                'Accept': 'application/json',
+                'Aceptado': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({description: this.state.description})
