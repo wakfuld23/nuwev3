@@ -10,7 +10,7 @@ import { PrivateRoute } from '@auth/PrivateRoute'
 import './App.scss'
 
 function App() {
-  const [isAuthenticated, setisAuthenticated] = useState(false)
+  const [isAuthenticated, setisAuthenticated] = useState(!!localStorage.getItem('NUWE_TKN'))
 
   return (
     <BrowserRouter basename='/nuwev3'>
@@ -29,6 +29,7 @@ function App() {
         <PrivateRoute isAuthenticated={isAuthenticated}>
           <Route exact path='/github' component={Github} />
         </PrivateRoute>
+        <Redirect to={{ pathname: '/github' }} />
       </Switch>
     </BrowserRouter>
   )
