@@ -4,7 +4,7 @@ const Pago = () => {
 
     const imgUrl = "https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
 
-    const datos = { id, nombre, creditos };
+    const datos = { pago, nombre, creditos };
 
      constructor(props, context) {
         super(props, context);
@@ -18,7 +18,7 @@ const Pago = () => {
         });
     }
 
-    onSubmit(e) {
+     onSubmit(e) {
         e.preventDefault();
 
         fetch(this.props.formAction, {
@@ -39,7 +39,7 @@ const Pago = () => {
             <div className="card col-sm-6 col-12 pt-sm-5 py-5 mb-4" style={{background: 'lightgray' }}>
                 <div className="card-body">
                     <h5># de compra (id):</h5>
-                  <h2 className="card-title">Has comprado:</h2>
+                  <h2 className="card-title">Vas a pagar:</h2>
                   <h3 className="card-text">Tienes ...  creditos.</h3>
                 </div>
             </div>
