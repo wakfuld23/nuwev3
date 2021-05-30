@@ -8,6 +8,7 @@ import { Github } from '@pages/github/Github'
 import { PrivateRoute } from '@auth/PrivateRoute'
 
 import './App.scss'
+import Credits from '@pages/credits/credits'
 
 function App() {
   const [isAuthenticated, setisAuthenticated] = useState(false)
@@ -26,6 +27,7 @@ function App() {
           path='/register'
           render={props => <Register setAuth={setisAuthenticated} {...props} />}
         />
+        <Route exact path='/credits' component={Credits} />
         <PrivateRoute isAuthenticated={isAuthenticated}>
           <Route exact path='/github' component={Github} />
         </PrivateRoute>
