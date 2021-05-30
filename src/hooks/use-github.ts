@@ -1,12 +1,11 @@
-import { GithubRepo } from '@models/github-repo'
-import { GithubUser } from '@models/github-user'
+import { Repository } from '@models/repository'
 import { User } from '@models/user'
 import AuthContext from 'context/auth-context'
 import { useCallback, useContext, useEffect, useState } from 'react'
 
 export const useGithub = (currentUser: User | null) => {
   const { handleLogin } = useContext(AuthContext)
-  const [payload, setPayload] = useState<GithubRepo[] | null>(null)
+  const [payload, setPayload] = useState<Repository[] | null>(null)
   const [error, setError] = useState<Error | null>(null)
 
   const fetchData = useCallback(async (url: string) => {

@@ -1,4 +1,3 @@
-import { GithubRepo } from '@models/github-repo'
 import { Repository } from '@models/repository'
 import React, { FunctionComponent } from 'react'
 
@@ -13,7 +12,11 @@ export const RepoCard: FunctionComponent<RepoCardProps> = ({ repo }) => (
     <div className={classes.repoCard}>
       <h3>{repo.name}</h3>
       {repo.stack.length &&
-        repo.stack.map(lang => <p className={classes.language}>{lang.toUpperCase()}</p>)}
+        repo.stack.map((lang, i) => (
+          <p key={i} className={classes.language}>
+            {lang.toUpperCase()}
+          </p>
+        ))}
       <p className={classes.repoId}>ID: {repo._id}</p>
     </div>
   </a>

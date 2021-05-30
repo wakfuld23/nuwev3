@@ -20,7 +20,7 @@ function App() {
         <Route exact path='/register' render={props => <Register {...props} />} />
         <Route exact path='/credits' component={Credits} />
         <PrivateRoute isAuthenticated={isAuth}>
-          <Route exact path='/github' component={Github} />
+          <Route exact path='/' component={Github} />
         </PrivateRoute>
       </Switch>
     </BrowserRouter>
