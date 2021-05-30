@@ -34,7 +34,7 @@ const Pago = ({ id, nombre, creditos }) => {
           <div className='card-body text-black'>
             <h5>ID de compra {id}</h5>
             <h2 className='card-title'>Has comprado: {nombre}</h2>
-            <h3 className='card-text'>Tienes {creditos} creditos.</h3>
+            <h3 className='card-text'>Vale {creditos} creditos.</h3>
           </div>
         </div>
 
