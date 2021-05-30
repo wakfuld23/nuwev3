@@ -5,6 +5,7 @@ import { RepoForm } from '@components/repo-form/RepoForm'
 import { Repos } from '@components/repos/Repos'
 import { UserCard } from '@components/user/User'
 import { NewRepo } from '@models/new-repo'
+import axios from 'axios'
 import AuthContext from 'context/auth-context'
 import { useGithub } from 'hooks/use-github'
 import React, { FormEvent, useCallback, useContext, useState } from 'react'
@@ -28,16 +29,13 @@ export const Github = () => {
       stack: [newRepo.language],
       author: newRepo.author,
     }
-    const requestOptions = {
-      method: 'POST',
+    const response = await axios.post('https://nuwe-htsv3-api.herokuapp.com/repository', repo, {
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('NUWE_TKN')!,
+        'Conten-type': 'application/json',
       },
-      body: JSON.stringify(repo),
-    }
-    const response = await fetch('https://nuwe-htsv3-api.herokuapp.com/repository', requestOptions)
-    if (response.ok) {
+    })
+    if (response) {
       setUserInput('')
     }
   }

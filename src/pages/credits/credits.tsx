@@ -1,9 +1,8 @@
 import React, { FunctionComponent, useState } from 'react'
 interface CreditsProps {}
-import Pago from '../../components/tarjeta/Pago'
+import Pago from '@components/tarjeta/Pago'
 import classes from './credits.module.scss'
 import { IoArrowBackCircleOutline } from 'react-icons/io5'
-
 
 export const Credits: FunctionComponent<CreditsProps> = () => {
   const [checkOut, setChekOut] = useState(false)
@@ -57,7 +56,7 @@ export const Credits: FunctionComponent<CreditsProps> = () => {
           <div>
             <IoArrowBackCircleOutline onClick={() => handelClick()} size={32} />
           </div>
-          <Pago id={id} nombre={name} creditos={creditos} />
+          <Pago id={id.toString()} nombre={name} creditos={creditos.toString()} />
         </div>
       )}
       {!checkOut && (
