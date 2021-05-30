@@ -13,7 +13,7 @@ function App() {
   const [isAuthenticated, setisAuthenticated] = useState(false)
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/nuwev3'>
       <Header setAuth={setisAuthenticated} isAuth={isAuthenticated} />
       <Switch>
         <Route
