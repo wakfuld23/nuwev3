@@ -19,7 +19,7 @@ export const Github = () => {
     <div className='App'>
       <Input label="Github's username" type='text' onChange={getGithubUser} value={userInput} />
       <>
-        <UserCard />
+        {user?.username && <UserCard />}
         {payload?.length && <Repos repos={payload} />}
       </>
       {!payload?.length && <h1>User not found...</h1>}
