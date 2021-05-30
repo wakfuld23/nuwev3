@@ -6,9 +6,12 @@
     flex-direction: row;
     justify-content: center;
     padding: 0 2em;
-    button{
-        height: fit-content;
-    }
+
+}
+
+.back{
+    color: none;
+    outline: none;
 }
 .containerColumn{
     display: flex;
@@ -22,6 +25,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
     gap: 2em;
+    justify-content: center;
 }
 
 .elementos{
@@ -32,7 +36,12 @@
     border-radius: 15px;
     justify-content: space-between;
     button{
+        height: fit-content;
         padding: 1em;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        align-self: center;
     }
     button:hover{
         background-color: aliceblue;
