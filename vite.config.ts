@@ -11,4 +11,5 @@ export default defineConfig({
       loose: true,
     }),
   ],
+  base: 'https://abelfubu.github.io/nuwev3/',
 })

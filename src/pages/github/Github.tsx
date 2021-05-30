@@ -21,7 +21,7 @@ export const Github = () => {
           <Repos repos={payload} />
         </>
       )}
-      {error && <h1>User not found...</h1>}
+      {!payload?.length && <h1>User not found...</h1>}
     </div>
   )
 }
