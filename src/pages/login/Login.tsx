@@ -21,7 +21,7 @@ export const Login: FunctionComponent<LoginProps> = ({ history }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
     }
-    const response = await fetch('https://nuwe-server.herokuapp.com/api/user/login', requestOptions)
+    const response = await fetch('https://nuwe-htsv3-api.herokuapp.com/signin', requestOptions)
     return await response.json()
   }
 

@@ -4,11 +4,10 @@ import classes from './user.module.scss'
 
 export const UserCard: FunctionComponent = () => {
   const { user } = useContext(AuthContext)
-
   return (
     <section className={classes.user}>
       <div className={classes.img}>
-        <h6>{user?.username[0].toUpperCase()}</h6>
+        <h6>{user?.username[0].toUpperCase()}</h6>{' '}
       </div>
       <div className='content'>
         <p>📙 Repositories</p>
