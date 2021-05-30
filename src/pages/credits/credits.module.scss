@@ -1,0 +1,37 @@
+@use "../../theme" as *;
+
+.container{
+    display: flex;
+    gap: 1.5em;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2em;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 2em;
+}
+
+.elementos{
+    display: flex;
+    width: 300px;
+    border: 1px solid white;
+    padding: 1em;
+    border-radius: 15px;
+    justify-content: space-between;
+    button{
+        padding: 1em;
+    }
+    button:hover{
+        background-color: aliceblue;
+    }
+    
+}
+
+.tarjeta{
+    width: 500px;
+    height: 150px;
+    background-color: grey;
+}

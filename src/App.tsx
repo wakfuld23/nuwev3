@@ -7,6 +7,7 @@ import AuthContext from 'context/auth-context'
 import React, { useContext } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.scss'
+import Credits from '@pages/credits/credits'
 
 function App() {
   const { isAuth } = useContext(AuthContext)
@@ -17,8 +18,9 @@ function App() {
       <Switch>
         <Route exact path='/login' render={props => <Login {...props} />} />
         <Route exact path='/register' render={props => <Register {...props} />} />
+        <Route exact path='/credits' component={Credits} />
         <PrivateRoute isAuthenticated={isAuth}>
-          <Route exact path='/' component={Github} />
+          <Route exact path='/github' component={Github} />
         </PrivateRoute>
       </Switch>
     </BrowserRouter>
