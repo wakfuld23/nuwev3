@@ -26,7 +26,6 @@ export const useGithub = (currentUser: User | null) => {
       // const repos = await fetchData('https://nuwe-htsv3-api.herokuapp.com/repositorys')
       if (!currentUser) {
         const token = localStorage.getItem('NUWE_TKN')!.split(' ')[1]
-        // const userId = JSON.parse(atob(token!.split('.')[1]))!
         const owner = await fetchData('https://nuwe-htsv3-api.herokuapp.com/user')
         handleLogin({ token, user: owner.user })
         // setPayload(repos)

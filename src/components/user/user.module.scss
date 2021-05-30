@@ -35,7 +35,7 @@
   place-items: center;
   border-radius: 16px;
   width: 100%;
-  background-color: map-get($map: $primary, $key: 400);
+  background-color: rgba(map-get($map: $primary, $key: 500), 0.5);
 
   h6 {
     font-size: 8rem;
