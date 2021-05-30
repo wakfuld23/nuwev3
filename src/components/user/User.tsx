@@ -17,7 +17,6 @@ export const UserCard: FunctionComponent = () => {
         <h3>{user?.username}</h3>
         <p>💻 Company</p>
         <h3>{user?.email}</h3>
-        <p>🌍 Location</p>
       </div>
     </section>
   )
