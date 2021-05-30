@@ -6,11 +6,6 @@
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 
-  img {
-    border-radius: 16px;
-    width: 100%;
-  }
-
   h1 {
     font-size: 3rem;
     font-weight: 300;
@@ -32,5 +27,17 @@
     color: map-get($map: $primary, $key: 500);
     text-decoration: none;
     color: inherit;
+  }
+}
+
+.img {
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  width: 100%;
+  background-color: map-get($map: $primary, $key: 400);
+
+  h6 {
+    font-size: 8rem;
   }
 }

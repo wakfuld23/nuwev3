@@ -5,8 +5,6 @@ const Pago = ({ nombre, id, creditos }) => {
 
     // console.log(nombre, id, creditos)
 
-    // const props = { pago, nombre, creditos, };
-
      const enviarDatos = (e) => {
         e.preventDefault();
 
@@ -35,11 +33,11 @@ const Pago = ({ nombre, id, creditos }) => {
                      id="main-login"
                      action="http://don.healthedata.com/admin/login"
                      method="post"
-                     className="col-12 col-sm-6">
+                     className="col-12 col-sm-6 text-black">
                         <label className="form-label">Nombre y Apellido del titular:</label>
-                        <input type="text" className="form-control mb-sm-1 mb-3"/>
+                        <input type="text" className="form-control"/>
                         <label>Número de Tarjeta:</label>
-                        <input type="text" className="form-control mb-sm-1 mb-3"/>
+                        <input type="text" className="form-control"/>
 
                 <div className="row mb-sm-2 mb-4">
                    <div className="col-sm-6 col-6">
@@ -52,7 +50,7 @@ const Pago = ({ nombre, id, creditos }) => {
                    </div>
                 </div>
 
-               <button className="btn btn-danger btn-block">Comprar</button>
+               <button className="btn btn-dark btn-block mt-sm-1 mt-3">Comprar</button>
                </form>
             </div>
         </div>

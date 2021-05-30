@@ -1,18 +1,23 @@
-import { GithubRepo } from '@models/github-repo'
+import { Repository } from '@models/repository'
 import React, { FunctionComponent } from 'react'
 
 import classes from './repo-card.module.scss'
 
 interface RepoCardProps {
-  repo: GithubRepo
+  repo: Repository
 }
 
 export const RepoCard: FunctionComponent<RepoCardProps> = ({ repo }) => (
-  <a className={classes.link} href={repo.html_url} target='_blank'>
+  <a className={classes.link} href={repo.url} target='_blank'>
     <div className={classes.repoCard}>
       <h3>{repo.name}</h3>
-      {repo.language && <p className={classes.language}>{repo.language}</p>}
-      <p className={classes.repoId}>ID: {repo.id}</p>
+      {repo.stack.length &&
+        repo.stack.map((lang, i) => (
+          <p key={i} className={classes.language}>
+            {lang.toUpperCase()}
+          </p>
+        ))}
+      <p className={classes.repoId}>ID: {repo._id}</p>
     </div>
   </a>
 )
