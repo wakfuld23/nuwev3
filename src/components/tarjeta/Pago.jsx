@@ -2,19 +2,13 @@ import React from 'react'
 
 const Pago = () => {
 
-const imgUrl = "https://images.pexels.com/photos/4968633/pexels-photo-4968633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-const datos = { id, nombre, creditos }
+
+    const datos = { id, nombre, creditos, cantidad }
     
      constructor(props, context) {
         super(props, context);
 
         this.state = { datos };
-    }
-
-    onChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
     }
 
     onSubmit(e) {
@@ -25,12 +19,9 @@ const datos = { id, nombre, creditos }
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({description: this.state.description})
+            body: JSON.stringify({datos: this.state.datos})
         });
-
-        this.setState({description: ''});
     }
-    
     
     return (
         <div className="container">
@@ -38,9 +29,9 @@ const datos = { id, nombre, creditos }
             <div className="row mt-sm-4 mt-3">
                 <div className="card col-sm-6 col-12 pt-sm-5 py-5 mb-4" style={{background: 'lightgray' }}>
                    <div className="card-body">
-                       <h5># de compra (id):</h5>
-                     <h2 className="card-title">Has comprado:</h2>
-                     <h3 className="card-text">Tienes ...  creditos.</h3>
+                        <h5># de compra: {id}</h5>
+                        <h2 className="card-title">Has comprado: { cantidad } - { nombre}</h2>
+                        <h3 className="card-text">Tienes { creditos} creditos.</h3>
                    </div>
                 </div>
 
