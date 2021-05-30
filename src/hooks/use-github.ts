@@ -21,7 +21,6 @@ export const useGithub = (currentUser: User | null) => {
   }, [])
 
   useEffect(() => {
-    // Debounce user keystrokes
     const timer = setTimeout(async () => {
       // const repos = await fetchData('https://nuwe-htsv3-api.herokuapp.com/repositorys')
       if (!currentUser) {

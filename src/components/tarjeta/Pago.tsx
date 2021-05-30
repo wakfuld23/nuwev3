@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import React, { FormEvent, FunctionComponent, useState } from 'react'
 
-const Pago = ({ id, nombre, creditos }) => {
+const Pago: FunctionComponent<{ id: string; nombre: string; creditos: string }> = ({
+  id,
+  nombre,
+  creditos,
+}) => {
   const [cardInfo, setCardInfo] = useState({
     name: '',
     number: '',
@@ -10,19 +14,19 @@ const Pago = ({ id, nombre, creditos }) => {
   const imgUrl =
     'https://images.pexels.com/photos/4968633/pexels-photo-4968633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
 
-  const handleChange = event => {
-    const { name, value } = event.target
+  const handleChange = (event: FormEvent<HTMLInputElement>) => {
+    const { name, value } = event.target as HTMLInputElement
     setCardInfo(prev => ({ ...prev, [name]: value }))
     console.log(cardInfo)
   }
 
-  const onSubmit = event => {
+  const onSubmit = (event: FormEvent) => {
     event.preventDefault()
     fetch('', {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ description: this.state.description }),
+      body: JSON.stringify(cardInfo),
     })
   }
 
@@ -40,19 +44,9 @@ const Pago = ({ id, nombre, creditos }) => {
 
         <form id='main-login' onSubmit={onSubmit} className='col-12 col-sm-6'>
           <label className='form-label'>Nombre y Apellido del titular:</label>
-          <input
-            type='text'
-            className='form-control'
-            name='name'
-            onChange={handleChange}
-          />
+          <input type='text' className='form-control' name='name' onChange={handleChange} />
           <label>Número de Tarjeta:</label>
-          <input
-            type='text'
-            className='form-control'
-            name='number'
-            onChange={handleChange}
-          />
+          <input type='text' className='form-control' name='number' onChange={handleChange} />
 
           <div className='row'>
             <div className='col-sm-6 col-6'>
