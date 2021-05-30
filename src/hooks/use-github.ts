@@ -1,15 +1,19 @@
 import { GithubRepo } from '@models/github-repo'
 import { GithubUser } from '@models/github-user'
-import { useCallback, useEffect, useState } from 'react'
+import { User } from '@models/user'
+import AuthContext from 'context/auth-context'
+import { useCallback, useContext, useEffect, useState } from 'react'
 
-export const useGithub = (user: string) => {
+export const useGithub = (currentUser: User | null) => {
+  const { handleLogin } = useContext(AuthContext)
   const [payload, setPayload] = useState<GithubRepo[] | null>(null)
-  const [owner, setOwner] = useState<GithubUser | null>(null)
   const [error, setError] = useState<Error | null>(null)
 
   const fetchData = useCallback(async (url: string) => {
     try {
-      const response = await fetch(`https://api.github.com/users/${url}`)
+      const response = await fetch(url, {
+        headers: { Authorization: localStorage.getItem('NUWE_TKN') || '' },
+      })
       setError(null)
       return response.json()
     } catch (error) {
@@ -20,17 +24,20 @@ export const useGithub = (user: string) => {
   useEffect(() => {
     // Debounce user keystrokes
     const timer = setTimeout(async () => {
-      if (!user) return
-
-      const repos = await fetchData(`${user}/repos?per_page=200`)
-      const owner = await fetchData(user)
-
+      const repos = await fetchData(
+        'https://nuwe-server.herokuapp.com/api/repository/getRepoByUser',
+      )
+      if (!currentUser) {
+        const token = localStorage.getItem('NUWE_TKN')!.split(' ')[1]
+        const userId = JSON.parse(atob(token!.split('.')[1]))!
+        const owner = await fetchData(`https://nuwe-server.herokuapp.com/api/user/${userId._id}`)
+        handleLogin({ token, user: owner })
+      }
       setPayload(repos)
-      setOwner(owner)
     }, 400)
 
     return () => clearTimeout(timer)
-  }, [user])
+  }, [currentUser])
 
-  return { payload, owner, error }
+  return { payload, error }
 }
