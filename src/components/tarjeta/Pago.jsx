@@ -1,50 +1,38 @@
-import React from 'react'
+import React from 'react';
+// import credits from '../../pages/credits'
 
-const Pago = () => {
+const Pago = ({ nombre, id, creditos }) => {
 
-    const imgUrl = "https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+    // console.log(nombre, id, creditos)
 
-    const datos = { pago, nombre, creditos };
+    // const props = { pago, nombre, creditos, };
 
-     constructor(props, context) {
-        super(props, context);
-
-        this.state = { datos };
-    }
-
-    onChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-    }
-
-     onSubmit(e) {
+     const enviarDatos = (e) => {
         e.preventDefault();
 
-        fetch(this.props.formAction, {
+        fetch(datos.formAction, {
             headers: {
                 'Aceptado': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({description: this.state.description})
+            body: JSON.stringify({datos: datos})
         });
-
-        this.setState({description: ''});
     }
-
+    
     return (
       <div className="container">
             <h1 className="text-center mt-sm-4 mb-sm-5 mt-3">Paga con Tarjeta</h1>
             <div className="row mt-sm-4 mt-3">
             <div className="card col-sm-6 col-12 pt-sm-5 py-5 mb-4" style={{background: 'lightgray' }}>
                 <div className="card-body">
-                    <h5># de compra (id):</h5>
-                  <h2 className="card-title">Vas a pagar:</h2>
-                  <h3 className="card-text">Tienes ...  creditos.</h3>
+                        <h5># de compra: { id }</h5>
+                        <h2 className="card-title">Vas a comprar:  { nombre}</h2>
+                        <h3 className="card-text">Tienes { creditos }  creditos.</h3>
                 </div>
             </div>
               
-               <form id="main-login"
+                <form onSubmit={ enviarDatos }
+                     id="main-login"
                      action="http://don.healthedata.com/admin/login"
                      method="post"
                      className="col-12 col-sm-6">
