@@ -1,17 +1,8 @@
-import React, {
-  Dispatch,
-  FormEvent,
-  FunctionComponent,
-  SetStateAction,
-  useContext,
-  useState,
-} from 'react'
-import { Link, RouteComponentProps } from 'react-router-dom'
-
 import { Input } from '@components/input/Input'
-
-import classes from './register.module.scss'
 import AuthContext from 'context/auth-context'
+import React, { FormEvent, FunctionComponent, useContext, useState } from 'react'
+import { Link, RouteComponentProps } from 'react-router-dom'
+import classes from './register.module.scss'
 
 interface Credentials {
   email: string
@@ -19,12 +10,11 @@ interface Credentials {
   username: string
 }
 
-interface LoginProps extends RouteComponentProps {
-  setAuth: Dispatch<SetStateAction<boolean>>
-}
+interface LoginProps extends RouteComponentProps {}
 
 export const Register: FunctionComponent<LoginProps> = ({ history }) => {
   const { handleLogin } = useContext(AuthContext)
+
   const [credentials, setCredentials] = useState<Credentials>({
     email: '',
     password: '',
@@ -53,9 +43,8 @@ export const Register: FunctionComponent<LoginProps> = ({ history }) => {
     try {
       const user = await createUser()
       if (!user?.token) return
-      localStorage.setItem('NUWE_TKN', `Bearer ${user.token}`)
-      handleLogin()
-      history.push('github')
+      handleLogin(user)
+      history.push('/')
     } catch (error) {
       console.log(error)
     }

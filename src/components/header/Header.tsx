@@ -1,18 +1,10 @@
-import React, { Dispatch, FunctionComponent, SetStateAction } from 'react'
+import AuthContext from 'context/auth-context'
+import React, { FunctionComponent, useContext } from 'react'
 import { Link } from 'react-router-dom'
-
 import classes from './header.module.scss'
 
-interface HeaderProps {
-  isAuth: boolean
-  setAuth: Dispatch<SetStateAction<boolean>>
-}
-
-export const Header: FunctionComponent<HeaderProps> = ({ setAuth, isAuth }) => {
-  const handleLogout = () => {
-    localStorage.removeItem('NUWE_TKN')
-    setAuth(false)
-  }
+export const Header: FunctionComponent = () => {
+  const { isAuth, handleLogout } = useContext(AuthContext)
 
   return (
     <header className={classes.header}>

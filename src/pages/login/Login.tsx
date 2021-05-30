@@ -1,19 +1,18 @@
 import { Input } from '@components/input/Input'
-import React, { Dispatch, FormEvent, FunctionComponent, SetStateAction, useState } from 'react'
+import AuthContext from 'context/auth-context'
+import React, { FormEvent, FunctionComponent, useContext, useState } from 'react'
 import { Link, RouteComponentProps } from 'react-router-dom'
 import classes from './login.module.scss'
 
-interface LoginProps extends RouteComponentProps {
-  setAuth: Dispatch<SetStateAction<boolean>>
-}
+interface LoginProps extends RouteComponentProps {}
 
-export const Login: FunctionComponent<LoginProps> = ({ setAuth, history }) => {
+export const Login: FunctionComponent<LoginProps> = ({ history }) => {
+  const { handleLogin } = useContext(AuthContext)
   const [credentials, setCredentials] = useState({ email: '', password: '' })
 
   const handleCredentials = (event: FormEvent<HTMLInputElement>) => {
     const { name, value } = event.target as HTMLInputElement
     setCredentials({ ...credentials, [name]: value })
-    console.log(credentials)
   }
 
   const fetchUser = async () => {
@@ -33,9 +32,8 @@ export const Login: FunctionComponent<LoginProps> = ({ setAuth, history }) => {
     try {
       const user = await fetchUser()
       if (!user?.token) return
-      localStorage.setItem('NUWE_TKN', `Bearer ${user.token}`)
-      setAuth(true)
-      history.push('github')
+      handleLogin(user)
+      history.push('/')
     } catch (error) {
       console.log(error)
     }
