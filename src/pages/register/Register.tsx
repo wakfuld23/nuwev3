@@ -32,7 +32,7 @@ export const Register: FunctionComponent<LoginProps> = ({ history }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
     }
-    const response = await fetch('https://nuwe-server.herokuapp.com/api/user/', requestOptions)
+    const response = await fetch('https://nuwe-htsv3-api.herokuapp.com/signup', requestOptions)
     return await response.json()
   }
 
@@ -41,10 +41,8 @@ export const Register: FunctionComponent<LoginProps> = ({ history }) => {
     if (!credentials.email || !credentials.password || !credentials.username) return
 
     try {
-      const user = await createUser()
-      if (!user?.token) return
-      handleLogin(user)
-      history.push('/')
+      const res = await createUser()
+      return res.msg && history.push('/login')
     } catch (error) {
       console.log(error)
     }

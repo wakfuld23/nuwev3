@@ -23,16 +23,13 @@ export const useGithub = (currentUser: User | null) => {
   useEffect(() => {
     // Debounce user keystrokes
     const timer = setTimeout(async () => {
-      const repos = await fetchData(
-        'https://nuwe-server.herokuapp.com/api/repository/getRepoByUser',
-      )
+      // const repos = await fetchData('https://nuwe-htsv3-api.herokuapp.com/repositorys')
       if (!currentUser) {
         const token = localStorage.getItem('NUWE_TKN')!.split(' ')[1]
-        const userId = JSON.parse(atob(token!.split('.')[1]))!
-        const owner = await fetchData(`https://nuwe-server.herokuapp.com/api/user/${userId._id}`)
-        handleLogin({ token, user: owner })
+        const owner = await fetchData('https://nuwe-htsv3-api.herokuapp.com/user')
+        handleLogin({ token, user: owner.user })
+        // setPayload(repos)
       }
-      setPayload(repos)
     }, 400)
 
     return () => clearTimeout(timer)

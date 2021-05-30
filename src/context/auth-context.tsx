@@ -26,7 +26,7 @@ export const AuthContextProvider = (props: any) => {
 
   const handleLogin = (res: AuthResponse) => {
     localStorage.setItem('NUWE_TKN', `Bearer ${res.token}`)
-    setUser(res.user)
+    setUser(res?.user)
     setIsLoggedIn(true)
   }
 

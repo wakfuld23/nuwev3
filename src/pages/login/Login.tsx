@@ -1,3 +1,4 @@
+import { Button } from '@components/button/Button'
 import { Input } from '@components/input/Input'
 import AuthContext from 'context/auth-context'
 import React, { FormEvent, FunctionComponent, useContext, useState } from 'react'
@@ -21,7 +22,7 @@ export const Login: FunctionComponent<LoginProps> = ({ history }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
     }
-    const response = await fetch('https://nuwe-server.herokuapp.com/api/user/login', requestOptions)
+    const response = await fetch('https://nuwe-htsv3-api.herokuapp.com/signin', requestOptions)
     return await response.json()
   }
 
@@ -57,7 +58,7 @@ export const Login: FunctionComponent<LoginProps> = ({ history }) => {
           name='password'
           onChange={handleCredentials}
         />
-        <button className={classes.button}>LOGIN</button>
+        <Button>LOGIN</Button>
         <Link to='/register'>Not registered yet - Go to sign up</Link>
       </form>
     </section>

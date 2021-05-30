@@ -8,11 +8,18 @@ export const Header: FunctionComponent = () => {
 
   return (
     <header className={classes.header}>
-      <h3>
-        <i className='fab fa-github-alt'></i>
-      </h3>
+      <Link to='/'>
+        <h3>
+          <i className='fab fa-github-alt'></i>
+        </h3>
+      </Link>
       <nav>
         <ul>
+          <li>
+            <Link to='/credits' target='_blank'>
+              Credits
+            </Link>
+          </li>
           {/* Logout button only visible while logged in  */}
           {isAuth && (
             <li>
